@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-----------------------------------------------------------------------
+ 
+Theme 19 Nebulous
+by yukoki/s-ekki
+ 
+1. Light/Heavy CSS editting is allowed.
+2. Do not use as base code.
+3. Do not remove credit.
+4. Do not claim theme as your own.
+ 
+---------------------------------------------------------- VER 010516 -->
+
+<meta name="image:background" content="">
+<meta name="image:sidebar" content="">
+<meta name="image:sidebar border" content="">
+
+<meta name="color:scrollbar" content="#aaaaaa">
+<meta name="color:background" content="#ffffff">
+<meta name="color:sidebar background" content="#333333">
+<meta name="color:sidebar border" content="#ffffff">
+<meta name="color:blog title" content="#ffffff">
+<meta name="color:desc" content="#929292">
+<meta name="color:desc bold" content="#cccccc">
+<meta name="color:desc italic" content="#888888">
+<meta name="color:desc links" content="#929292">
+<meta name="color:desc links hover" content="#cccccc">
+<meta name="color:desc border" content="#7a7a7a">
+<meta name="color:nav icon" content="#929292">
+<meta name="color:nav icon text" content="#929292">
+<meta name="color:custom links icon" content="#929292">
+<meta name="color:custom links decor" content="#575757">
+<meta name="color:custom links text" content="#929292">
+<meta name="color:hover custom links" content="#aaaaaa">
+<meta name="color:pagination" content="929292">
+<meta name="color:pagination links" content="#aaaaaa">
+<meta name="color:pagination links hover" content="#ffffff">
+
+<meta name="color:post border" content="#d6d6d6">
+<meta name="color:body" content="#555555">
+<meta name="color:body bold" content="#CFA87E">
+<meta name="color:body italic" content="#888888">
+<meta name="color:body links" content="#F5BA7A">
+<meta name="color:body links hover" content="#aaaaaa">
+<meta name="color:blockquote" content="#cfcfcf">
+<meta name="color:quote post quote" content="#000000">
+<meta name="color:text post title" content="#000000">
+<meta name="color:link post title" content="#999999">
+<meta name="color:chat post odd bg" content="#4a4a4a">
+<meta name="color:chat post odd text" content="#ffffff">
+<meta name="color:chat post even bg" content="#eaeaea">
+<meta name="color:chat post even text" content="#777777">
+<meta name="color:audio post bg" content="#f6f6f6">
+<meta name="color:audio post border" content="#cfcfcf">
+<meta name="color:asker text" content="#5e5e5e">
+<meta name="color:ask bg" content="#5e5e5e">
+<meta name="color:ask text" content="#d4d4d4">
+<meta name="color:permalink bg" content="#000000">
+<meta name="color:permalink link" content="#ffffff">
+<meta name="color:permalink text" content="#555555">
+<meta name="color:tags" content="#888888">
+<meta name="color:tags bg" content="#efefef">
+
+<meta name="text:link 1" content="">
+<meta name="text:link 1 url" content="">
+<meta name="text:link 1 icon" content="">
+<meta name="text:link 2" content="">
+<meta name="text:link 2 url" content="">
+<meta name="text:link 2 icon" content="">
+<meta name="text:link 3" content="">
+<meta name="text:link 3 url" content="">
+<meta name="text:link 3 icon" content="">
+<meta name="text:link 4" content="">
+<meta name="text:link 4 url" content="">
+<meta name="text:link 4 icon" content="">
+<meta name="text:link 5" content="">
+<meta name="text:link 5 url" content="">
+<meta name="text:link 5 icon" content="">
+<meta name="text:link 6" content="">
+<meta name="text:link 6 url" content="">
+<meta name="text:link 6 icon" content="">
+
+<meta name="if:show captions" content="0">
+<meta name="if:fading photos" content="0">
+<meta name="if:monochrome posts" content="0">
+<meta name="if:show tags" content="0">
+<meta name="if:1 column 500px posts" content="1">
+<meta name="if:1 column 400px posts" content="0">
+<meta name="if:1 column 250px posts" content="0">
+<meta name="if:2 column 400px posts" content="0">
+<meta name="if:2 column 250px posts" content="0">
+
+<title>{title}{block:PostSummary}, {PostSummary}{/block:PostSummary}</title>
+{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+<link rel="shortcut icon" href="{Favicon}" />
+
+<link href='https://fonts.googleapis.com/css?family=Anaheim' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<script type="text/javascript" src="http://static.tumblr.com/d0qlne1/DiAl6ekb7/jquery-1.4.2.min.js"></script>
+<script src="http://static.tumblr.com/twte3d7/H8Glm663z/masonry.js"></script>
+
+<script type="text/javascript">
+$(window).load(function () {
+$('#content').masonry({
+itemSelector : ".entry",
+},
+function() { $('#content').masonry({ appendedContent: $(this) }); }
+);
+});
+</script>
+
+<style type="text/css">
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track-piece { background-color: transparent; }
+::-webkit-scrollbar-thumb:vertical {
+    width: 4px;
+    background-color: {color:scrollbar};
+    opacity: 0.4;
+}
+
+body {
+    background-color: {color:background};
+    background-image: url({image:background});
+    background-attachment: fixed;
+    margin: 0;
+    word-wrap: break-word;
+}
+a { text-decoration:none; }
+
+#sidebar {
+    top: 0;
+    width: 200px;
+    background-color: {color:sidebar background};
+    padding: 24px;
+    height: 100%;
+    position: fixed;
+    z-index: 1000;
+}
+
+.sbimg {
+    width: 200px;
+    display: block;
+}
+
+#sbr {
+    background-color: {color:sidebar border};
+    background-image: url({image:sidebar border});
+    position: fixed;
+    width: 40px;
+    height: 100%;
+    top: 0;
+    left: 240px;
+}
+
+.blogt {
+    font-family: anaheim;
+    color: {color:blog title};
+    font-size: 14px;
+    padding-bottom: 14px;
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+.desc {
+    font-family: anaheim;
+    font-size: 11px;
+    color: {color:desc};
+    text-align: justify;
+    margin-top: 22px;
+    padding: 10px 14px;
+    border: 1px solid {color:desc border};
+}
+
+.desc b,strong {color:{color:desc bold};}
+.desc i,em {color:{color:desc bold};}
+.desc a {color:{color:desc links};text-decoration:underline;}
+.desc a:hover {color:{color:desc links hover};}
+
+.desctopb, .descbotb {
+    position: absolute;
+    background-color: {color:sidebar background};
+    height: 10px;
+    width: 160px;
+    margin-left: 20px;
+}
+
+.desctopb {margin-top: 18px;}
+.descbotb {margin-top: -6px;}
+
+.bnav {
+    text-align: center;
+    font-size: 10px;
+    margin-top: 20px;
+    height: 10px;
+}
+
+.bnavi {color: {color:nav icon};transition: 0.8s;}
+
+.covtxt {
+    font-family: consolas;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: {color:nav icon text};
+    position: absolute;
+    text-align: center;
+    width: 50px;
+    opacity: 0;
+    transition: 0.8s;
+}
+
+.bcon {
+    float: left;
+    width: 50px;
+    text-align: center;
+}
+
+.bcon:hover .bnavi { opacity: 0; }
+.bcon:hover .covtxt { opacity: 1; letter-spacing: 2px; }
+
+#clink {
+    margin-top: 24px;
+}
+
+.fe {
+    font-size: 12px;
+    color: {color:custom links icon};
+    background-color: {color:sidebar background};
+    padding: 0 10px 0 0;
+    position: relative;
+    z-index: 2;
+    transition: 0.8s;
+}
+
+.medle {
+    width: 200px;
+    height: 1px;
+    background-color: {color:custom links decor};
+    position: absolute;
+    margin-top: -9px;
+    z-index: 1;
+}
+
+.forte {
+    position: absolute;
+    width: 200px;
+    color: {color:custom links text};
+    font-family: anaheim;
+    font-size: 12px;
+    font-style: italic;
+    letter-spacing: 1px;
+    text-align: right;
+    margin-top: -18px;
+    transition: 0.8s;
+}
+
+.forr {
+    background-color: {color:sidebar background};
+    padding: 0 0 0 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.iron:hover .fe { color: {color:hover custom links}; }
+.iron:hover .forte { color: {color:hover custom links}; letter-spacing: 2px; }
+
+#content {
+    margin-top: 60px;
+    margin-left: 360px;
+    {block:indexpage}
+    {block:if1column500pxposts}width: 600px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}width: 500px;{/block:if1column400pxposts}
+    {block:if1column250pxposts}width: 350px;{/block:if1column250pxposts}
+    {block:if2column400pxposts}width: 970px;{/block:if2column400pxposts}
+    {block:if2column250pxposts}width: 800px;{/block:if2column250pxposts}
+    {/block:indexpage}
+    {block:permalinkpage}
+    {block:if1column500pxposts}width: 600px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}width: 500px;{/block:if1column400pxposts}
+    {block:if1column250pxposts}width: 600px;{/block:if1column250pxposts}
+    {block:if2column400pxposts}width: 500px;{/block:if2column400pxposts}
+    {block:if2column250pxposts}width: 600px;{/block:if2column250pxposts}
+    {/block:permalinkpage}
+}
+
+.pagi {
+    {block:if1column500pxposts}left: 920px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}left: 820px;{/block:if1column400pxposts}
+    {block:if1column250pxposts}left: 670px;{/block:if1column250pxposts}
+    {block:if2column400pxposts}left: 0;width:224px;{/block:if2column400pxposts}
+    {block:if2column250pxposts}left: 920px;{/block:if2column250pxposts}
+    font-family: anaheim;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 6px;
+    bottom: 14px;
+    position: fixed;
+    z-index: 1001;
+    color: {color:pagination};
+}
+
+.pagi a {color: {color:pagination links}; }
+.pagi a:hover {color: {color:pagination links hover}; }
+
+#wah {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    color: #fff;
+    font-family: anaheim;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 280px;
+    opacity: 0;z-index: -1000000000000;
+    {block:if1column500pxposts}{block:if1column400pxposts}opacity: 1; z-index: 100000000;{/block:if1column400pxposts}{/block:if1column500pxposts}{block:if1column500pxposts}{block:if1column250pxposts}opacity: 1; z-index: 100000000;{/block:if1column250pxposts}{/block:if1column500pxposts}{block:if1column500pxposts}{block:if2column400pxposts}opacity: 1; z-index: 100000000;{/block:if2column400pxposts}{/block:if1column500pxposts}{block:if1column500pxposts}{block:if2column250pxposts}opacity: 1; z-index: 100000000;{/block:if2column250pxposts}{/block:if1column500pxposts}{block:if1column400pxposts}{block:if1column250pxposts}opacity: 1; z-index: 100000000;{/block:if1column250pxposts}{/block:if1column400pxposts}{block:if1column400pxposts}{block:if2column250pxposts}opacity: 1; z-index: 100000000;{/block:if2column250pxposts}{/block:if1column400pxposts}
+}
+
+.entry {
+    width: 500px;
+    margin-bottom: 84px;
+    {block:indexpage}
+    {block:if1column500pxposts}width: 500px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}width: 400px;{/block:if1column400pxposts}
+    {block:if1column250pxposts}width: 250px;{/block:if1column250pxposts}
+    {block:if2column400pxposts}width: 400px;float:left;margin-right: 84px;{/block:if2column400pxposts}
+    {block:if2column250pxposts}width: 250px;float:left;margin-right: 84px;{/block:if2column250pxposts}
+    {/block:indexpage}
+    {block:permalinkpage}
+    {block:if1column500pxposts}width: 500px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}width: 400px;{/block:if1column400pxposts}
+    {block:if1column250pxposts}width: 500px;{/block:if1column250pxposts}
+    {block:if2column400pxposts}width: 400px;;{/block:if2column400pxposts}
+    {block:if2column250pxposts}width: 500px;{/block:if2column250pxposts}
+    {/block:permalinkpage}
+}
+
+.photo {
+    {block:indexpage}
+    {block:if1column500pxposts}max-width: 500px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}max-width: 400px;{/block:if1column400pxposts}
+    {block:if1column250pxposts}max-width: 250px;{/block:if1column250pxposts}
+    {block:if2column400pxposts}max-width: 400px;{/block:if2column400pxposts}
+    {block:if2column250pxposts}max-width: 250px;{/block:if2column250pxposts}
+    {/block:indexpage}
+    {block:permalinkpage}
+    {block:if1column500pxposts}max-width: 500px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}max-width: 400px;{/block:if1column400pxposts}
+    {block:if1column250pxposts}max-width: 500px;{/block:if1column250pxposts}
+    {block:if2column400pxposts}max-width: 400px;;{/block:if2column400pxposts}
+    {block:if2column250pxposts}max-width: 500px;{/block:if2column250pxposts}
+    {/block:permalinkpage}
+    display: block;
+    {block:iffadingphotos}
+    opacity: 0.7;
+    {/block:iffadingphotos}
+    {block:ifmonochromeposts}
+    filter: gray; /* IE6-9 */
+-webkit-filter: grayscale(100%); /* Chrome 19+ & Safari 6+ */
+    {/block:ifmonochromeposts}
+    transition: 0.6s;
+}
+
+.photo:hover {
+    opacity: 1;
+    {block:ifmonochromeposts}
+    filter: none;
+    -webkit-filter: grayscale(0%);  
+    {/block:ifmonochromeposts}
+}
+
+.entry img {
+    {block:indexpage}
+    {block:if1column500pxposts}max-width: 500px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}max-width: 400px;{/block:if1column400pxposts}
+    {block:if1column250pxposts}max-width: 250px;{/block:if1column250pxposts}
+    {block:if2column400pxposts}max-width: 400px;{/block:if2column400pxposts}
+    {block:if2column250pxposts}max-width: 250px;{/block:if2column250pxposts}
+    {/block:indexpage}
+    {block:permalinkpage}
+    {block:if1column500pxposts}max-width: 500px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}max-width: 400px;{/block:if1column400pxposts}
+    {block:if1column250pxposts}max-width: 500px;{/block:if1column250pxposts}
+    {block:if2column400pxposts}max-width: 400px;;{/block:if2column400pxposts}
+    {block:if2column250pxposts}max-width: 500px;{/block:if2column250pxposts}
+    {/block:permalinkpage}
+    display: block;
+}
+
+#topleft, #toprigh, #botleft, #botrigh {position: absolute;}
+.tlstr, .tlver, .trstr, .trver, .blstr, .blver, .brstr, .brver {
+    background-color: {color:post border};
+}
+
+.tlstr, .trstr, .blstr, .brstr  {
+    width: 34px;
+    height: 1px;
+}
+
+.tlver, .trver, .blver, .brver {
+    width: 1px;
+    height: 34px;
+}
+
+{block:if1column500pxposts}
+#topleft {margin: -26px;}
+#toprigh {margin: -26px 526px;}
+#botleft {margin: 24px -26px;}
+#botrigh {margin: 24px 492px;}
+{/block:if1column500pxposts}
+{block:if1column400pxposts}
+#topleft {margin: -26px;}
+#toprigh {margin: -26px 426px;}
+#botleft {margin: 24px -26px;}
+#botrigh {margin: 24px 392px;}
+{/block:if1column400pxposts}
+{block:indexpage}
+{block:if1column250pxposts}
+#topleft {margin: -26px;}
+#toprigh {margin: -26px 276px;}
+#botleft {margin: 24px -26px;}
+#botrigh {margin: 24px 242px;}
+{/block:if1column250pxposts}
+{block:if2column400pxposts}
+#topleft {margin: -26px;}
+#toprigh {margin: -26px 426px;}
+#botleft {margin: 24px -26px;}
+#botrigh {margin: 24px 392px;}
+{/block:if2column400pxposts}
+{block:if2column250pxposts}
+#topleft {margin: -26px;}
+#toprigh {margin: -26px 276px;}
+#botleft {margin: 24px -26px;}
+#botrigh {margin: 24px 242px;}
+{/block:if2column250pxposts}
+{/block:indexpage}
+{block:permalinkpage}
+{block:if1column250pxposts}
+#topleft {margin: -26px;}
+#toprigh {margin: -26px 526px;}
+#botleft {margin: 24px -26px;}
+#botrigh {margin: 24px 492px;}
+{/block:if1column250pxposts}
+{block:if2column400pxposts}
+#topleft {margin: -26px;}
+#toprigh {margin: -26px 426px;}
+#botleft {margin: 24px -26px;}
+#botrigh {margin: 24px 392px;}
+{/block:if2column400pxposts}
+{block:if2column250pxposts}
+#topleft {margin: -26px;}
+#toprigh {margin: -26px 526px;}
+#botleft {margin: 24px -26px;}
+#botrigh {margin: 24px 492px;}
+{/block:if2column250pxposts}
+{/block:permalinkpage}
+
+.trstr { margin: 0 -34px; }
+.blver { margin: -34px 0; }
+.brver { margin: -34px 34px; }
+
+.pti {
+    font-family: anaheim;
+    font-size: 18px;
+    color: {color:text post title};
+}
+
+.body {
+    font-family: anaheim;
+    font-size: 12px;
+    color: {color:body};
+}
+
+.body a, .quosrc a, .asker, .entryinfo a, .notes a {color: {color:body links};}
+.body a:hover, .quosrc a:hover, .entryinfo a:hover, .notes a:hover { color: {color:body links hover}; }
+
+.body b,strong, .quosrc i,em { color: {color:body bold}; }
+.body i,em { color: {color:body italic}; }
+
+blockquote {
+    padding: 0 10px;
+    margin: 10px;
+    border-left: 1px solid {color:blockquote};
+}
+
+.body ul { list-style-type: square; }
+
+.quo {
+    font-family: anaheim;
+    font-size: 18px;
+    text-align: center;
+    color: {color:quote post quote};
+}
+
+.quosrc {
+    font-size: 10px;
+    text-align: center;
+    font-family: consolas;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: {color:body};
+}
+
+.lti {
+    font-family: anaheim;
+    font-size: 18px;
+    color: {color:link post title};
+}
+
+.cbox {
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    font-family: anaheim;
+    font-size: 12px;
+    position: relative;
+    z-index: 10;
+}
+
+#odd {
+    background-color: {color:chat post odd bg};
+    color: {color:chat post odd text};
+    margin-left: 80px;
+    {block:indexpage}
+    {block:if1column500pxposts}width: 380px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}width: 280px;{/block:if1column400pxposts}
+    {block:if1column250pxposts}width: 130px;{/block:if1column250pxposts}
+    {block:if2column400pxposts}width: 280px;{/block:if2column400pxposts}
+    {block:if2column250pxposts}width: 130px;{/block:if2column250pxposts}
+    {/block:indexpage}
+    {block:permalinkpage}
+    {block:if1column500pxposts}width: 380px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}width: 280px;{/block:if1column400pxposts}
+    {block:if1column250pxposts}width: 380px;{/block:if1column250pxposts}
+    {block:if2column400pxposts}width: 280px;{/block:if2column400pxposts}
+    {block:if2column250pxposts}width: 380px;{/block:if2column250pxposts}
+    {/block:permalinkpage}
+}
+
+#even {
+    background-color: {color:chat post even bg};
+    color: {color:chat post even text};
+    {block:indexpage}
+    {block:if1column500pxposts}width: 380px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}width: 280px;{/block:if1column400pxposts}
+    {block:if1column250pxposts}width: 130px;{/block:if1column250pxposts}
+    {block:if2column400pxposts}width: 280px;{/block:if2column400pxposts}
+    {block:if2column250pxposts}width: 130px;{/block:if2column250pxposts}
+    {/block:indexpage}
+    {block:permalinkpage}
+    {block:if1column500pxposts}width: 380px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}width: 280px;{/block:if1column400pxposts}
+    {block:if1column250pxposts}width: 380px;{/block:if1column250pxposts}
+    {block:if2column400pxposts}width: 280px;{/block:if2column400pxposts}
+    {block:if2column250pxposts}width: 380px;{/block:if2column250pxposts}
+    {/block:permalinkpage}
+}
+
+.cadbu {
+    color: {color:chat post even bg};
+    font-size: 24px;
+    position: absolute;
+    z-index: 9;
+    {block:indexpage}
+    {block:if1column500pxposts}margin: 4px 416px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}margin: 4px 316px;{/block:if1column400pxposts}
+    {block:if1column250pxposts}margin: 4px 166px;{/block:if1column250pxposts}
+    {block:if2column400pxposts}margin: 4px 316px;{/block:if2column400pxposts}
+    {block:if2column250pxposts}margin: 4px 166px;{/block:if2column250pxposts}
+    {/block:indexpage}
+    {block:permalinkpage}
+    {block:if1column500pxposts}margin: 4px 416px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}margin: 4px 316px;{/block:if1column400pxposts}
+    {block:if1column250pxposts}margin: 4px 416px;{/block:if1column250pxposts}
+    {block:if2column400pxposts}margin: 4px 316px;{/block:if2column400pxposts}
+    {block:if2column250pxposts}margin: 4px 416px;{/block:if2column250pxposts}
+    {/block:permalinkpage}
+}
+
+.hersh {
+    color: {color:chat post odd bg};
+    position: absolute;
+    z-index: 9;
+    font-size: 24px;
+    margin: 4px 64px;
+}
+
+.audino {
+    padding: 20px;
+    background-color: {color:audio post bg};
+    border-left: 1px solid {color:audio post border};
+    border-right: 1px solid {color:audio post border};
+}
+
+.cyan {
+    width: 150px;
+    height: 150px;
+    display: block;
+    {block:indexpage}
+    {block:if1column250pxposts}
+    width: 208px;height: 208px;
+    {/block:if1column250pxposts}
+    {block:if2column250pxposts}
+    width: 208px;height: 208px;
+    {/block:if2column250pxposts}
+    {/block:indexpage}
+    {block:permalinkpage}
+    {block:if1column250pxposts}
+    width: 150px;height: 150px;
+    {/block:if1column250pxposts}
+    {block:if2column250pxposts}
+    width: 150px;height: 150px;
+    {/block:if2column250pxposts}
+    {/block:permalinkpage}
+}
+
+.aarty {
+    width: 150px;
+    height: 150px;
+    display: block;
+    z-index: 2;
+    position: absolute;
+    {block:indexpage}
+    {block:if1column250pxposts}
+    width: 208px;height: 208px;
+    {/block:if1column250pxposts}
+    {block:if2column250pxposts}
+    width: 208px;height: 208px;
+    {/block:if2column250pxposts}
+    {/block:indexpage}
+    {block:permalinkpage}
+    {block:if1column250pxposts}
+    width: 150px;height: 150px;
+    {/block:if1column250pxposts}
+    {block:if2column250pxposts}
+    width: 150px;height: 150px;
+    {/block:if2column250pxposts}
+    {/block:permalinkpage}
+}
+
+.noart {
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    font-size: 12px;
+    background-color: #dfdfdf;
+    color: #888;
+    text-align: center;
+    font-family: anaheim;
+    font-style: italic;
+    {block:indexpage}
+    {block:if1column250pxposts}
+    width: 208px;
+    height: 208px;
+    line-height: 208px;
+    font-size: 14px;
+    {/block:if1column250pxposts}
+    {block:if2column250pxposts}
+    width: 208px;
+    height: 208px;
+    line-height: 208px;
+    font-size: 14px;
+    {/block:if2column250pxposts}
+    {/block:indexpage}
+    {block:permalinkpage}
+    {block:if1column250pxposts}
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    font-size: 12px;
+    {/block:if1column250pxposts}
+    {block:if2column250pxposts}
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    font-size: 12px;
+    {/block:if2column250pxposts}
+    {/block:permalinkpage}
+}
+
+.augold {
+    width: 15%;
+    background-color: {color:audio post border};
+    height: 1px;
+    float: left;
+}
+
+.agsil {
+    width: 15%;
+    background-color: {color:audio post border};
+    height: 1px;
+    float: right;
+}
+
+.bismu {
+    width: 26px;
+    overflow: hidden;
+    position: absolute;
+    margin: 50px;
+    z-index: 4;
+    border: 10px solid #fff;
+    border-radius: 100px;
+    background-color: #fff;
+    opacity: 0.6;
+    height: 26px;
+    {block:indexpage}
+    {block:if1column250pxposts}margin: 79px;{/block:if1column250pxposts}
+    {block:if2column250pxposts}margin: 79px;{/block:if2column250pxposts}
+    {/block:indexpage}
+    {block:permalinkpage}
+    {block:if1column250pxposts}margin: 50px;{/block:if1column250pxposts}
+    {block:if2column250pxposts}margin: 50px;{/block:if2column250pxposts}
+    {/block:permalinkpage}
+    transition: 0.8s;
+}
+
+.entry:hover .bismu {opacity: 1;}
+
+{block:indexpage}
+{block:if1column250pxposts}.entry:hover .bismu {border: 0 solid #fff;border-radius: 0;width: 210px;height: 30px;margin: 0;}{/block:if1column250pxposts}
+{block:if2column250pxposts}.entry:hover .bismu {border: 0 solid #fff;border-radius: 0;width: 210px;height: 30px;margin: 0;}{/block:if2column250pxposts}
+{/block:indexpage}
+
+.iodine {
+    position: absolute;
+    z-index: 3;
+    margin: 0 170px;
+    font-family: anaheim;
+    font-size: 12px;
+    height: 150px;
+    width: 310px;
+    {block:if1column500pxposts}width: 310px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}width: 210px;{/block:if1column400pxposts}
+    {block:if2column400pxposts}width: 210px;{/block:if2column400pxposts}
+    {block:indexpage}
+    {block:if1column250pxposts}
+    width: 176px;
+    padding: 0 16px;
+    margin: 208px 0;
+    background-color: rgba(255,255,255,0.7);
+    height: 0;
+    overflow: hidden;
+    {/block:if1column250pxposts}
+    {block:if2column250pxposts}
+    width: 176px;
+    padding: 0 16px;
+    margin: 208px 0;
+    background-color: rgba(255,255,255,0.7);
+    height: 0;
+    overflow: hidden;
+    {/block:if2column250pxposts}
+    {/block:indexpage}
+    {block:permalinkpage}
+    {block:if1column250pxposts}
+    position: absolute;
+    z-index: 3;
+    margin: 0 170px;
+    font-family: anaheim;
+    font-size: 12px;
+    height: 150px;
+    width: 310px;
+    padding: 0 0;
+    {/block:if1column250pxposts}
+    {block:if2column250pxposts}
+    position: absolute;
+    z-index: 3;
+    margin: 0 170px;
+    font-family: anaheim;
+    font-size: 12px;
+    height: 150px;
+    width: 310px;
+    padding: 0 0;
+    {/block:if2column250pxposts}
+    {/block:permalinkpage}
+    
+    transition: 0.8s;
+}
+
+{block:indexpage}
+{block:if1column250pxposts}.entry:hover .iodine {transition-delay: 0.4s;height: 146px;padding: 16px;margin: 30px 0;}{/block:if1column250pxposts}
+{block:if2column250pxposts}.entry:hover .iodine {transition-delay: 0.4s;height: 146px;padding: 16px;margin: 30px 0;}{/block:if2column250pxposts}
+{block:indexpage}
+
+.bromine {font-size: 18px;}
+
+.chlorine {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.aphro {
+    width: 36px;
+    height: 36px;
+    display: block;
+    float: left;
+    border-radius: 5px;
+    margin-left: 40px;
+}
+
+.ares {
+    margin-left: 20px;
+    font-family: anaheim;
+    font-size: 14px;
+    line-height: 36px;
+    color: {color:asker text};
+}
+
+.zeus {
+    margin-top: 20px;
+    background-color: {color:ask bg};
+    color: {color:ask text};
+    padding: 20px;
+    font-family: anaheim;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.posei {
+    position: absolute;
+    font-size: 22px;
+    color: {color:ask bg};
+    margin: -40px 30px;
+}
+
+.erudi {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: anaheim;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    z-index: 2;
+    opacity: 0;
+    transition: 0.8s;
+    {block:if1column500pxposts}width: 500px;{/block:if1column500pxposts}
+    {block:if1column400pxposts}width: 400px;{/block:if1column400pxposts}
+    {block:if1column250pxposts}width: 250px;{/block:if1column250pxposts}
+    {block:if2column400pxposts}width: 400px;{/block:if2column400pxposts}
+    {block:if2column250pxposts}width: 250px;{/block:if2column250pxposts}
+}
+
+.invicl {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: 0.8s;
+}
+
+.dite {
+    font-size: 22px;
+    margin-bottom: -10px;
+}
+
+.entry:hover .erudi, .entry:hover .invicl {
+    opacity: 0.8;
+}
+
+.erudi a {
+    color: {color:permalink link};
+}
+
+.valour {
+    font-family: anaheim;
+    font-size: 12px;
+    color: {color:permalink text};
+    position: absolute;
+    width: 200px;
+    transition: 0.6s;
+{block:if1column500pxposts}margin: 10px 550px;{/block:if1column500pxposts}
+{block:if1column400pxposts}margin: 10px 450px;{/block:if1column400pxposts}
+{block:if1column250pxposts}margin: 10px 300px;{/block:if1column250pxposts}
+{block:if2column400pxposts}display:none;{/block:if2column400pxposts}
+{block:if2column250pxposts}display:none;{/block:if2column250pxposts}
+}
+
+.valour a { color: {color:permalink link}; }
+
+.lore { 
+    font-size: 18px; 
+    margin-bottom: -16px;
+    margin-top: -10px;
+    transition: 0.6s;
+    opacity: 0;
+    color: {color:permalink link};
+}
+
+.val {
+    transition: 0.6s;
+    opacity: 0;
+    margin-left: -10px;
+    {color:body text};
+}
+
+.entry:hover .lore {
+    opacity: 1;
+    margin-top: 0;
+}
+
+.entry:hover .val {
+    opacity: 1;
+    transition-delay: 0.4s;
+    margin-left: 0;
+}
+
+.alo {
+    opacity: 0;
+    transition: 0.6s;
+    text-transform: uppercase;
+    font-size: 10px;
+    border-left: 1px solid transparent;
+    margin-top: 10px;
+}
+
+.entry:hover .alo {
+    opacity: 1;
+    padding-left: 10px;
+    margin-left: 10px;
+    border-left: 1px solid {color:blockquote};
+    transition-delay: 0.6s;
+}
+
+.vigilance {
+    text-align: right;
+    font-family: anaheim;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0;
+    position: absolute;
+    margin: 0 -5px;
+    z-index: 10;
+{block:if1column500pxposts}display:none;{/block:if1column500pxposts}
+{block:if1column400pxposts}display:none;{/block:if1column400pxposts}
+{block:if1column250pxposts}display:none;{/block:if1column250pxposts}
+{block:if2column400pxposts}width: 400px;{/block:if2column400pxposts}
+{block:if2column250pxposts}width: 250px;{/block:if2column250pxposts}
+    transition: 0.6s;
+}
+
+.vigilance a {
+    margin-left: 2px;
+    background-color: rgba({RGBcolor:permalink bg},0.3);
+    color: {color:permalink link};
+    border: 1px solid {color:permalink link};
+    padding: 4px 8px;
+}
+
+.entry:hover .vigilance {
+    opacity: 1;
+    margin: 10px -5px;
+}
+
+.respo {
+    margin-top: 10px;
+    font-family: anaheim;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 20px;
+{block:if1column500pxposts}display:none;{/block:if1column500pxposts}
+{block:if1column400pxposts}display:none;{/block:if1column400pxposts}
+{block:if1column250pxposts}display:none;{/block:if1column250pxposts}
+}
+
+.respo a {
+    background-color: {color:tags bg};
+    color: {color:tags};
+    padding: 2px 4px;
+}
+
+.entryinfo {
+    font-family: anaheim;
+    font-size: 12px;
+    color: {color:body};
+}
+
+#notecon {
+{block:if1column500pxposts}width: 500px;{/block:if1column500pxposts}
+{block:if1column400pxposts}width: 400px;{/block:if1column400pxposts}
+{block:if1column250pxposts}width: 500px;{/block:if1column250pxposts}
+{block:if2column400pxposts}width: 400px;{/block:if2column400pxposts}
+{block:if2column250pxposts}width: 500px;{/block:if2column250pxposts}
+    margin-top: 50px;
+    font-family: anaheim;
+    font-size: 10px;
+    color: {color:body};
+    margin-left: -40px;
+}
+ 
+.notes li {
+{block:if1column500pxposts}width: 500px;{/block:if1column500pxposts}
+{block:if1column400pxposts}width: 400px;{/block:if1column400pxposts}
+{block:if1column250pxposts}width: 500px;{/block:if1column250pxposts}
+{block:if2column400pxposts}width: 400px;{/block:if2column400pxposts}
+{block:if2column250pxposts}width: 500px;{/block:if2column250pxposts}
+    font-family: anaheim;
+    font-size: 12px;
+    background-color: {color:post background};
+    padding: 10px 0;
+    border-bottom: 1px solid #f3f3f3;
+}
+ 
+.notes img {
+    margin-right: 10px;
+    float: left;
+    width: 13px;
+    height: 13px;
+}
+ 
+ol.notes {
+{block:if1column500pxposts}width: 500px;{/block:if1column500pxposts}
+{block:if1column400pxposts}width: 400px;{/block:if1column400pxposts}
+{block:if1column250pxposts}width: 500px;{/block:if1column250pxposts}
+{block:if2column400pxposts}width: 400px;{/block:if2column400pxposts}
+{block:if2column250pxposts}width: 500px;{/block:if2column250pxposts}
+    list-style-type: none;
+    position: absolute;
+}
+
+
+{CustomCSS}    
+
+</style>
+</head>
+<body>
+
+<div id="wah">Please pick only one post option.</div>
+
+<div id="content">
+
+{block:posts}
+
+<div class="entry">
+
+<div id="topleft"><div class="tlstr"></div><div class="tlver"></div></div>
+<div id="toprigh"><div class="trstr"></div><div class="trver"></div></div>
+
+{block:Answer}
+{block:indexpage}
+<div class="vigilance"><!--2col top right perma-->
+<a href="{permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a> <a href="{permalink}">{dayofmonthwithzero}.{MonthNumberWithZero}.{ShortYear}</a> <a href="{ReblogURL}"><i class="fa fa-retweet"></i></a>
+</div><!--vigilance-->
+<div class="valour"><!--1 column side perma-->
+<div class="lore"><a href="{Permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a></div><br>
+<span class="val">Posted on {dayofweek}; {Dayofmonth} {month}</span><br>
+{block:rebloggedfrom}<span class="val"><a href="{reblogparenturl}">via</a> + <a href="{reblogrooturl}">origin</a></span><br>{/block:rebloggedfrom}
+{block:ifshowtags}{block:hastags}<div class="alo">{block:tags}<a href="{TagURL}">#{Tag}</a><br>{/block:tags}</div>{/block:hastags}{/block:ifshowtags}
+</div><!--valour-->
+{/block:indexpage}
+<img class="aphro" src="{AskerPortraitURL-128}"> <span class="ares"><a>{Asker} sent a message: </a></span>
+<div class="zeus"><div class="posei">▲</div>{Question}</div>
+<div class="body">{Answer}</div>
+{block:ifshowtags}{block:hastags}<div class="respo">{block:tags}<a href="{TagURL}">#{Tag}</a> {/block:tags}
+</div>{/block:hastags}{/block:ifshowtags}
+{/block:Answer}
+
+{block:text}
+{block:indexpage}
+<div class="vigilance"><!--2col top right perma-->
+<a href="{permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a> <a href="{permalink}">{dayofmonthwithzero}.{MonthNumberWithZero}.{ShortYear}</a> <a href="{ReblogURL}"><i class="fa fa-retweet"></i></a>
+</div><!--vigilance-->
+<div class="valour"><!--1 column side perma-->
+<div class="lore"><a href="{Permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a></div><br>
+<span class="val">Posted on {dayofweek}; {Dayofmonth} {month}</span><br>
+{block:rebloggedfrom}<span class="val"><a href="{reblogparenturl}">via</a> + <a href="{reblogrooturl}">origin</a></span><br>{/block:rebloggedfrom}
+{block:ifshowtags}{block:hastags}<div class="alo">{block:tags}<a href="{TagURL}">#{Tag}</a><br>{/block:tags}</div>{/block:hastags}{/block:ifshowtags}
+</div><!--valour-->
+{/block:indexpage}
+<div class="pti">{Title}</div>
+<div class="body">{body}</div>
+{block:ifshowtags}{block:hastags}<div class="respo">{block:tags}<a href="{TagURL}">#{Tag}</a> {/block:tags}
+</div>{/block:hastags}{/block:ifshowtags}
+{/block:text}
+
+{block:photo}
+{block:indexpage}
+{block:ifnotshowcaptions}
+<div class="erudi"><!--overlay img perma-->
+<div class="dite"><a href="{Permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a></div><br>
+Posted on {dayofweek}; {Dayofmonth} {month}<br>
+{block:rebloggedfrom}<a href="{reblogparenturl}">via</a> + <a href="{reblogrooturl}">origin</a>{/block:rebloggedfrom}
+{block:ifshowtags}{block:hastags}<span class="rudi"><br>{block:tags}<a href="{TagURL}">#{Tag}</a> {/block:tags}</span>{/block:hastags}{/block:ifshowtags}
+</div><!--erudi-->
+<div class="invicl"></div>
+{block:ifnotshowcaptions}
+{block:ifshowcaptions}
+<div class="vigilance"><!--2col top right perma-->
+<a href="{permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a> <a href="{permalink}">{dayofmonthwithzero}.{MonthNumberWithZero}.{ShortYear}</a> <a href="{ReblogURL}"><i class="fa fa-retweet"></i></a>
+</div><!--vigilance-->
+<div class="valour"><!--1 column side perma-->
+<div class="lore"><a href="{Permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a></div><br>
+<span class="val">Posted on {dayofweek}; {Dayofmonth} {month}</span><br>
+{block:rebloggedfrom}<span class="val"><a href="{reblogparenturl}">via</a> + <a href="{reblogrooturl}">origin</a></span><br>{/block:rebloggedfrom}
+{block:ifshowtags}{block:hastags}<div class="alo">{block:tags}<a href="{TagURL}">#{Tag}</a><br>{/block:tags}</div>{/block:hastags}{/block:ifshowtags}
+</div><!--valour-->
+{/block:ifshowcaptions}
+{/block:indexpage}
+<div class="photo">
+{LinkOpenTag}<center><img src="{PhotoURL-500}" /></center>{LinkCloseTag}
+</div>
+{block:IfShowCaptions}{block:Caption}<div class="body">{Caption}</div>{/block:Caption}{/block:IfShowCaptions}
+{block:IfNotShowCaptions}{block:PermalinkPage}{block:Caption}
+<div class="body">{Caption}</div>{/block:Caption}{/block:PermalinkPage}{/block:IfNotShowCaptions}
+{block:ifshowcaptions}
+{block:ifshowtags}{block:hastags}<div class="respo">{block:tags}<a href="{TagURL}">#{Tag}</a> {/block:tags}
+</div>{/block:hastags}{/block:ifshowtags}
+{/block:ifshowcaptions}
+{/block:photo}
+
+{block:photoset}
+{block:indexpage}
+{block:ifnotshowcaptions}
+<div class="erudi"><!--overlay img perma-->
+<div class="dite"><a href="{Permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a></div><br>
+Posted on {dayofweek}; {Dayofmonth} {month}<br>
+{block:rebloggedfrom}<a href="{reblogparenturl}">via</a> + <a href="{reblogrooturl}">origin</a>{/block:rebloggedfrom}
+{block:hastags}<span class="rudi"><br>{block:tags}<a href="{TagURL}">#{Tag}</a> {/block:tags}</span>{/block:hastags}
+</div><!--erudi-->
+<div class="invicl"></div>
+{block:ifnotshowcaptions}
+{block:ifshowcaptions}
+<div class="vigilance"><!--2col top right perma-->
+<a href="{permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a> <a href="{permalink}">{dayofmonthwithzero}.{MonthNumberWithZero}.{ShortYear}</a> <a href="{ReblogURL}"><i class="fa fa-retweet"></i></a>
+</div><!--vigilance-->
+<div class="valour"><!--1 column side perma-->
+<div class="lore"><a href="{Permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a></div><br>
+<span class="val">Posted on {dayofweek}; {Dayofmonth} {month}</span><br>
+{block:rebloggedfrom}<span class="val"><a href="{reblogparenturl}">via</a> + <a href="{reblogrooturl}">origin</a></span><br>{/block:rebloggedfrom}
+{block:ifshowtags}{block:hastags}<div class="alo">{block:tags}<a href="{TagURL}">#{Tag}</a><br>{/block:tags}</div>{/block:hastags}{/block:ifshowtags}
+</div><!--valour-->
+{/block:ifshowcaptions}
+{/block:indexpage}
+<div class="photo">
+{block:indexpage}
+{block:if1column500pxposts}{Photoset-500}{/block:if1column500pxposts}
+{block:if1column400pxposts}{Photoset-400}{/block:if1column400pxposts}
+{block:if1column250pxposts}{Photoset-250}{/block:if1column250pxposts}
+{block:if2column400pxposts}{Photoset-400}{/block:if2column400pxposts}
+{block:if2column250pxposts}{Photoset-250}{/block:if2column250pxposts}
+{/block:indexpage}
+{block:permalinkpage}
+{block:if1column500pxposts}{Photoset-500}{/block:if1column500pxposts}
+{block:if1column400pxposts}{Photoset-400}{/block:if1column400pxposts}
+{block:if1column250pxposts}{Photoset-500}{/block:if1column250pxposts}
+{block:if2column400pxposts}{Photoset-400}{/block:if2column400pxposts}
+{block:if2column250pxposts}{Photoset-500}{/block:if2column250pxposts}
+{/block:permalinkpage}
+</div>
+{block:IfShowCaptions}{block:Caption}<div class="body">{Caption}</div>{/block:Caption}{/block:IfShowCaptions}
+{block:IfNotShowCaptions}{block:PermalinkPage}{block:Caption}
+<div class="body">{Caption}</div>{/block:Caption}{/block:PermalinkPage}{/block:IfNotShowCaptions}
+{block:ifshowcaptions}
+{block:ifshowtags}{block:hastags}<div class="respo">{block:tags}<a href="{TagURL}">#{Tag}</a> {/block:tags}
+</div>{/block:hastags}{/block:ifshowtags}
+{/block:ifshowcaptions}
+{/block:photoset}
+
+{block:quote}
+{block:indexpage}
+<div class="vigilance"><!--2col top right perma-->
+<a href="{permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a> <a href="{permalink}">{dayofmonthwithzero}.{MonthNumberWithZero}.{ShortYear}</a> <a href="{ReblogURL}"><i class="fa fa-retweet"></i></a>
+</div><!--vigilance-->
+<div class="valour"><!--1 column side perma-->
+<div class="lore"><a href="{Permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a></div><br>
+<span class="val">Posted on {dayofweek}; {Dayofmonth} {month}</span><br>
+{block:rebloggedfrom}<span class="val"><a href="{reblogparenturl}">via</a> + <a href="{reblogrooturl}">origin</a></span><br>{/block:rebloggedfrom}
+{block:ifshowtags}{block:hastags}<div class="alo">{block:tags}<a href="{TagURL}">#{Tag}</a><br>{/block:tags}</div>{/block:hastags}{/block:ifshowtags}
+</div><!--valour-->
+{/block:indexpage}
+<div class="quo">{Quote}</div>
+<div class="quosrc"><b><i class="fa fa-quote-left"></i></b> — {Source} — <b><i class="fa fa-quote-right"></i></b></div>
+{block:ifshowtags}{block:hastags}<div class="respo">{block:tags}<a href="{TagURL}">#{Tag}</a> {/block:tags}
+</div>{/block:hastags}{/block:ifshowtags}
+{/block:quote}
+
+{block:link}
+{block:indexpage}
+<div class="vigilance"><!--2col top right perma-->
+<a href="{permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a> <a href="{permalink}">{dayofmonthwithzero}.{MonthNumberWithZero}.{ShortYear}</a> <a href="{ReblogURL}"><i class="fa fa-retweet"></i></a>
+</div><!--vigilance-->
+<div class="valour"><!--1 column side perma-->
+<div class="lore"><a href="{Permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a></div><br>
+<span class="val">Posted on {dayofweek}; {Dayofmonth} {month}</span><br>
+{block:rebloggedfrom}<span class="val"><a href="{reblogparenturl}">via</a> + <a href="{reblogrooturl}">origin</a></span><br>{/block:rebloggedfrom}
+{block:ifshowtags}{block:hastags}<div class="alo">{block:tags}<a href="{TagURL}">#{Tag}</a><br>{/block:tags}</div>{/block:hastags}{/block:ifshowtags}
+</div><!--valour-->
+{/block:indexpage}
+<a href="{URL}"><div class="lti"><i class="fa fa-link"></i> {Name}</div></a>
+{block:description}<div class="body">{description}</div>{/block:description}
+{block:ifshowtags}{block:hastags}<div class="respo">{block:tags}<a href="{TagURL}">#{Tag}</a> {/block:tags}
+</div>{/block:hastags}{/block:ifshowtags}
+{/block:link}
+
+{block:chat}
+{block:indexpage}
+<div class="vigilance"><!--2col top right perma-->
+<a href="{permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a> <a href="{permalink}">{dayofmonthwithzero}.{MonthNumberWithZero}.{ShortYear}</a> <a href="{ReblogURL}"><i class="fa fa-retweet"></i></a>
+</div><!--vigilance-->
+<div class="valour"><!--1 column side perma-->
+<div class="lore"><a href="{Permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a></div><br>
+<span class="val">Posted on {dayofweek}; {Dayofmonth} {month}</span><br>
+{block:rebloggedfrom}<span class="val"><a href="{reblogparenturl}">via</a> + <a href="{reblogrooturl}">origin</a></span><br>{/block:rebloggedfrom}
+{block:ifshowtags}{block:hastags}<div class="alo">{block:tags}<a href="{TagURL}">#{Tag}</a><br>{/block:tags}</div>{/block:hastags}{/block:ifshowtags}
+</div><!--valour-->
+{/block:indexpage}
+{block:title}<div class="pti">{title}</div>{/block:title}
+{block:lines}
+<div class="cadbu">▶</div>
+<div class="hersh">◀</div>
+<div class="cbox" id="{alt}">
+{block:label}{label} {/block:label}{line}</div>
+{/block:lines}
+{block:ifshowtags}{block:hastags}<div class="respo">{block:tags}<a href="{TagURL}">#{Tag}</a> {/block:tags}
+</div>{/block:hastags}{/block:ifshowtags}
+{/block:chat}
+
+{block:audio}
+{block:indexpage}
+<div class="vigilance"><!--2col top right perma-->
+<a href="{permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a> <a href="{permalink}">{dayofmonthwithzero}.{MonthNumberWithZero}.{ShortYear}</a> <a href="{ReblogURL}"><i class="fa fa-retweet"></i></a>
+</div><!--vigilance-->
+<div class="valour"><!--1 column side perma-->
+<div class="lore"><a href="{Permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a></div><br>
+<span class="val">Posted on {dayofweek}; {Dayofmonth} {month}</span><br>
+{block:rebloggedfrom}<span class="val"><a href="{reblogparenturl}">via</a> + <a href="{reblogrooturl}">origin</a></span><br>{/block:rebloggedfrom}
+{block:ifshowtags}{block:hastags}<div class="alo">{block:tags}<a href="{TagURL}">#{Tag}</a><br>{/block:tags}</div>{/block:hastags}{/block:ifshowtags}
+</div><!--valour-->
+{/block:indexpage}
+<div class="augold"></div><div class="agsil"></div>
+<div class="audino">
+{block:AudioPlayer}<div class="bismu">{AudioPlayer}</div>{/block:AudioPlayer}
+<div class="iodine">
+{block:if1column500pxposts}<div class="chlorine">{/block:if1column500pxposts}
+{block:if1column400pxposts}<div class="chlorine">{/block:if1column400pxposts}
+{block:if2column400pxposts}<div class="chlorine">{/block:if2column400pxposts}
+{block:trackname}<span class="bromine"><i class="fa fa-music"></i> {TrackName}</span><br>{/block:trackname}
+{block:album}<i class="fa fa-sliders"></i> {album}<br>{/block:album}
+{block:artist}<i class="fa fa-user"></i> {artist}<br>{/block:artist}
+{block:PlayCount}<i class="fa fa-refresh"></i> {PlayCountWithLabel}{/block:PlayCount}
+{block:if1column500pxposts}</div><!--chlorine-->{/block:if1column500pxposts}
+{block:if1column400pxposts}</div><!--chlorine-->{/block:if1column400pxposts}
+{block:if2column400pxposts}</div><!--chlorine-->{/block:if2column400pxposts}
+</div><!--iodine-->
+<div class="cyan"><!--album art coding start-->
+{block:AlbumArt}<img class="aarty" src="{AlbumArtURL}">{/block:AlbumArt}
+<div class="noart">album art not available</div>
+</div><!--cyan-->
+</div><!--audino-->
+<div class="augold"></div><div class="agsil"></div>
+{block:IfShowCaptions}{block:Caption}<div class="body">{Caption}</div>{/block:Caption}{/block:IfShowCaptions}
+{block:IfNotShowCaptions}{block:PermalinkPage}{block:Caption}
+<div class="body">{Caption}</div>{/block:Caption}{/block:PermalinkPage}{/block:IfNotShowCaptions}
+{block:ifshowtags}{block:hastags}<div class="respo">{block:tags}<a href="{TagURL}">#{Tag}</a> {/block:tags}
+</div>{/block:hastags}{/block:ifshowtags}
+{/block:audio}
+
+{block:video}
+{block:indexpage}
+{block:ifnotshowcaptions}
+<div class="erudi"><!--overlay img perma-->
+<div class="dite"><a href="{Permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a></div><br>
+Posted on {dayofweek}; {Dayofmonth} {month}<br>
+{block:rebloggedfrom}<a href="{reblogparenturl}">via</a> + <a href="{reblogrooturl}">origin</a>{/block:rebloggedfrom}
+{block:ifshowtags}{block:hastags}<span class="rudi"><br>{block:tags}<a href="{TagURL}">#{Tag}</a> {/block:tags}</span>{/block:hastags}{/block:ifshowtags}
+</div><!--erudi-->
+<div class="invicl"></div>
+{block:ifnotshowcaptions}
+{block:ifshowcaptions}
+<div class="vigilance"><!--2col top right perma-->
+<a href="{permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a> <a href="{permalink}">{dayofmonthwithzero}.{MonthNumberWithZero}.{ShortYear}</a> <a href="{ReblogURL}"><i class="fa fa-retweet"></i></a>
+</div><!--vigilance-->
+<div class="valour"><!--1 column side perma-->
+<div class="lore"><a href="{Permalink}">{NoteCount} <i class="fa fa-heart-o"></i></a></div><br>
+<span class="val">Posted on {dayofweek}; {Dayofmonth} {month}</span><br>
+{block:rebloggedfrom}<span class="val"><a href="{reblogparenturl}">via</a> + <a href="{reblogrooturl}">origin</a></span><br>{/block:rebloggedfrom}
+{block:ifshowtags}{block:hastags}<div class="alo">{block:tags}<a href="{TagURL}">#{Tag}</a><br>{/block:tags}</div>{/block:hastags}{/block:ifshowtags}
+</div><!--valour-->
+{/block:ifshowcaptions}
+{/block:indexpage}
+<div class="photo">
+{block:indexpage}
+{block:if1column500pxposts}{Video-500}{/block:if1column500pxposts}
+{block:if1column400pxposts}{Video-400}{/block:if1column400pxposts}
+{block:if1column250pxposts}{Video-250}{/block:if1column250pxposts}
+{block:if2column400pxposts}{Video-400}{/block:if2column400pxposts}
+{block:if2column250pxposts}{Video-250}{/block:if2column250pxposts}
+{/block:indexpage}
+{block:permalinkpage}
+{block:if1column500pxposts}{Video-500}{/block:if1column500pxposts}
+{block:if1column400pxposts}{Video-400}{/block:if1column400pxposts}
+{block:if1column250pxposts}{Video-500}{/block:if1column250pxposts}
+{block:if2column400pxposts}{Video-400}{/block:if2column400pxposts}
+{block:if2column250pxposts}{Video-500}{/block:if2column250pxposts}
+{/block:permalinkpage}
+</div><!--photo-->
+{block:IfShowCaptions}{block:Caption}<div class="body">{Caption}</div>{/block:Caption}{/block:IfShowCaptions}
+{block:IfNotShowCaptions}{block:PermalinkPage}{block:Caption}
+<div class="body">{Caption}</div>{/block:Caption}{/block:PermalinkPage}{/block:IfNotShowCaptions}
+{block:ifshowcaptions}
+{block:ifshowtags}{block:hastags}<div class="respo">{block:tags}<a href="{TagURL}">#{Tag}</a> {/block:tags}
+</div>{/block:hastags}{/block:ifshowtags}
+{/block:ifshowcaptions}
+{/block:video}
+
+<div id="botleft"><div class="blstr"></div><div class="blver"></div></div>
+<div id="botrigh"><div class="brstr"></div><div class="brver"></div></div>
+
+</div><!--entry-->
+
+{block:ContentSource}
+<!-- {SourceURL}{block:SourceLogo}<img src="{BlackLogoURL}"
+width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+{/block:SourceLogo}
+{block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+{/block:ContentSource}
+<!--{block:NoRebloggedFrom}{block:RebloggedFrom}{ReblogParentName}{/block:RebloggedFrom}{/block:NoRebloggedFrom}-->  
+
+{block:date}{block:permalinkpage}<div class="entryinfo">
+Post made on {DayOfMonthWithZero} {Month} {Year}, {12Hour}.{Minutes}{AmPm}, with {NoteCountWithLabel}.{block:RebloggedFrom}<br>Reblogged via <a href="{ReblogParentURL}">{ReblogParentName}</a>, originally by <a href="{ReblogRootURL}">{ReblogRootName}</a>.{/block:RebloggedFrom}{block:hastags}<br>{block:tags}<a href="{TagURL}">#{Tag}</a> {/block:tags}{/block:hastags}
+</div><!--entryinfo-->{block:PostNotes}<div id="notecon">{PostNotes-16}</div><!--applepie note container-->{/block:PostNotes}{/block:permalinkpage}{/block:date}
+
+{/block:posts}
+
+</div><!--content-->
+
+<div class="pagi">
+{block:Pagination}
+{block:PreviousPage}
+<a href="{PreviousPage}"><</a>
+{/block:PreviousPage}
+{block:JumpPagination length="5"}
+{block:CurrentPage}
+<span class="current_page">X</span>
+{/block:CurrentPage}
+{block:JumpPage}
+<a class="jump_page" href="{URL}">{PageNumber}</a>
+{/block:JumpPage}
+{/block:JumpPagination}
+{block:NextPage}
+<a href="{NextPage}">></a>
+{/block:NextPage}
+{/block:Pagination}
+</div>
+
+<div id="sbr"></div>
+
+<div id="sidebar">
+<div class="blogt">{Title}</div>
+<img class="sbimg" src="{image:sidebar}">
+<div class="bnav">
+<a href="/"><div class="bcon"><div class="covtxt">reset</div><span class="bnavi"><i class="fa fa-refresh"></i></span></div><!--bcon--></a>
+<a href="/ask"><div class="bcon"><div class="covtxt">ask</div><span class="bnavi"><i class="fa fa-envelope-o"></i></span></div><!--bcon--></a>
+<a href="/archive"><div class="bcon"><div class="covtxt">past</div><span class="bnavi"><i class="fa fa-folder-open-o"></i></span></div><!--bcon--></a>
+<a href="http://yukoki.tumblr.com"><div class="bcon"><div class="covtxt">thm</div><span class="bnavi"><i class="fa fa-pagelines"></i></span></div><!--bcon--></a>
+</div>
+<div class="desctopb"></div>
+<div class="desc">{description}</div>
+<div class="descbotb"></div>
+<div id="clink">
+{block:iflink1}<a href="{text:link 1 url}"><div class="iron"><span class="fe"><i class="fa fa-{text:link 1 icon}"></i></span><div class="medle"></div><div class="forte"><span class="forr">{text:link 1}</span></div></div></a>{/block:iflink1}
+{block:iflink2}<a href="{text:link 2 url}"><div class="iron"><span class="fe"><i class="fa fa-{text:link 2 icon}"></i></span><div class="medle"></div><div class="forte"><span class="forr">{text:link 2}</span></div></div></a>{/block:iflink2}
+{block:iflink3}<a href="{text:link 3 url}"><div class="iron"><span class="fe"><i class="fa fa-{text:link 3 icon}"></i></span><div class="medle"></div><div class="forte"><span class="forr">{text:link 3}</span></div></div></a>{/block:iflink3}
+{block:iflink4}<a href="{text:link 4 url}"><div class="iron"><span class="fe"><i class="fa fa-{text:link 4 icon}"></i></span><div class="medle"></div><div class="forte"><span class="forr">{text:link 4}</span></div></div></a>{/block:iflink4}
+{block:iflink5}<a href="{text:link 5 url}"><div class="iron"><span class="fe"><i class="fa fa-{text:link 5 icon}"></i></span><div class="medle"></div><div class="forte"><span class="forr">{text:link 5}</span></div></div></a>{/block:iflink5}
+{block:iflink6}<a href="{text:link 6 url}"><div class="iron"><span class="fe"><i class="fa fa-{text:link 6 icon}"></i></span><div class="medle"></div><div class="forte"><span class="forr">{text:link 6}</span></div></div></a>{/block:iflink6}
+</div><!--clink-->
+
+</div><!--sidebar end-->
+
+</body>
+</html>
